@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+    <!-- Carousel Container -->
+    <div class="carousel">
+      <!-- Left-Button -->
+      <button class="carousel__button carousel__button--left is-hidden">
+        <img src="/images/chevron-left-solid.svg" alt="" />
+      </button>
+      <!-- Left-Button End -->
+      <!-- Carousel Container with Slides -->
+      <div class="carousel__track-container">
+        <ul class="carousel__track">
+          <li class="carousel__slide current-slide">
+            <img class="carousel__image" src="/images/img1.jpg" alt="" />
+          </li>
+          <li class="carousel__slide">
+            <img class="carousel__image" src="/images/img2.jpg" alt="" />
+          </li>
+          <li class="carousel__slide">
+            <img class="carousel__image" src="/images/img3.jpg" alt="" />
+          </li>
+        </ul>
+      </div>
+      <!-- Carousel Container with Slides End-->
+      <!-- Right-Button -->
+      <button class="carousel__button carousel__button--right">
+        <img src="/images/chevron-right-solid.svg" alt="" />
+      </button>
+      <!-- Right-Button End -->
+      <!-- Rangebar -->
+      <form>
+        <label for="timer">Timer in ms:</label>
+        <input
+          type="range"
+          id="timer"
+          name="timer"
+          min="1000"
+          max="3000"
+          value="3000"
+        />
+        <span id="timerValue">3000 ms</span>
+      </form>
+      <!-- Rangebar End-->
+      <!-- Carousel Dots -->
+      <div class="carousel__nav">
+        <button class="carousel__indicator current-slide"></button>
+        <button class="carousel__indicator"></button>
+        <button class="carousel__indicator"></button>
+      </div>
+      <!-- Carousel Dots End -->
+      <!-- Play & Pause Buttons -->
+      <div class="carousel__controls">
+        <button class="carousel__button carousel__button--toggle">
+          <img src="/images/pause-solid.svg" alt="Pause" />
+        </button>
+      </div>
+      <!-- Play & Pause Buttons End -->
+    </div>
+    <!-- Carousel Container End -->
+    <script src="/script/carousel.js"></script>
+  </body>
+</html>
