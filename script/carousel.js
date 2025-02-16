@@ -71,7 +71,7 @@ prevButton.addEventListener("click", (e) => {
 
   moveToSlide(track, currentSlide, prevSlide); // Move to previous Slide
   updateDots(currentDot, prevDot); //Update Dots
-  hideShowArrows(slides, prevButton, nextButton, prevIndex); // Hide & Show Arrows
+  /* hideShowArrows(slides, prevButton, nextButton, prevIndex); */ // Hide & Show Arrows
 });
 
 // Arrow Function / Click Event
@@ -85,7 +85,7 @@ nextButton.addEventListener("click", (e) => {
 
   moveToSlide(track, currentSlide, nextSlide); // Move to next slide
   updateDots(currentDot, nextDot); //Update Dots
-  hideShowArrows(slides, prevButton, nextButton, nextIndex); // Hide & Show Arrows
+  /* hideShowArrows(slides, prevButton, nextButton, nextIndex); */ // Hide & Show Arrows
 });
 
 // Arrow Function / Click Event
@@ -101,7 +101,7 @@ dotsNav.addEventListener("click", (e) => {
 
   moveToSlide(track, currentSlide, targetSlide); // Move to the the clicked Slide
   updateDots(currentDot, targetDot); // Update Dots
-  hideShowArrows(slides, prevButton, nextButton, targetIndex); // Hide & Show Arrows
+  /* hideShowArrows(slides, prevButton, nextButton, targetIndex); */ // Hide & Show Arrows
 });
 
 // Setting default Interval
@@ -128,7 +128,7 @@ function showNext() {
 
   moveToSlide(track, currentSlide, nextSlide);
   updateDots(currentDot, nextDot);
-  hideShowArrows(slides, prevButton, nextButton, nextIndex);
+  /* hideShowArrows(slides, prevButton, nextButton, nextIndex); */
 }
 
 // Starting default intervaltime
