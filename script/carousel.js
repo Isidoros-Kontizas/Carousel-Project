@@ -61,7 +61,8 @@ const hideShowArrows = (slides, prevButton, nextButton, targetIndex) => {
 // Arrow Function / Click Event
 // Moving to the left the slide with previous button
 prevButton.addEventListener("click", (e) => {
-  pauseCarousel();
+  pauseCarousel(); // Pause the carousel immediately
+
   const currentSlide = track.querySelector(".current-slide"); //Current Slide
   const prevSlide =
     currentSlide.previousElementSibling || slides[slides.length - 1]; //Previous Slide
@@ -72,11 +73,25 @@ prevButton.addEventListener("click", (e) => {
   moveToSlide(track, currentSlide, prevSlide); // Move to previous Slide
   updateDots(currentDot, prevDot); //Update Dots
   /* hideShowArrows(slides, prevButton, nextButton, prevIndex); */ // Hide & Show Arrows
+
+  // Start autoplay again after 5 seconds
+  setTimeout(() => {
+    // Ensure autoplay is allowed to start again
+    if (!autoPlayActive) {
+      autoPlayActive = true;
+      startInterval(intervalTime); // Restart interval
+
+      // Update the toggle button image to show play
+      toggleButton.innerHTML = `<img src="/images/pause-solid.svg" alt="Pause" class="toggle-icon" />`;
+    }
+  }, 5000); // 5000ms = 5 seconds
 });
 
 // Arrow Function / Click Event
 // Moving to the right the slide with nextbutton
 nextButton.addEventListener("click", (e) => {
+  pauseCarousel(); // Pause the carousel immediately
+
   const currentSlide = track.querySelector(".current-slide"); //Current Slide
   const nextSlide = currentSlide.nextElementSibling || slides[0]; // Next Slide
   const currentDot = dotsNav.querySelector(".current-slide"); //Current Dot
@@ -86,6 +101,18 @@ nextButton.addEventListener("click", (e) => {
   moveToSlide(track, currentSlide, nextSlide); // Move to next slide
   updateDots(currentDot, nextDot); //Update Dots
   /* hideShowArrows(slides, prevButton, nextButton, nextIndex); */ // Hide & Show Arrows
+
+  // Start autoplay again after 5 seconds
+  setTimeout(() => {
+    // Ensure autoplay is allowed to start again
+    if (!autoPlayActive) {
+      autoPlayActive = true;
+      startInterval(intervalTime); // Restart interval
+
+      // Update the toggle button image to show play
+      toggleButton.innerHTML = `<img src="/images/pause-solid.svg" alt="Pause" class="toggle-icon" />`;
+    }
+  }, 5000); // 5000ms = 5 seconds
 });
 
 // Arrow Function / Click Event
@@ -93,6 +120,8 @@ nextButton.addEventListener("click", (e) => {
 dotsNav.addEventListener("click", (e) => {
   const targetDot = e.target.closest("button"); // Finds the dot that clicked
   if (!targetDot) return;
+
+  pauseCarousel(); // Pause the carousel immediately
 
   const currentSlide = track.querySelector(".current-slide"); // Current Slide
   const currentDot = dotsNav.querySelector(".current-slide"); // Current Dot
@@ -102,11 +131,23 @@ dotsNav.addEventListener("click", (e) => {
   moveToSlide(track, currentSlide, targetSlide); // Move to the the clicked Slide
   updateDots(currentDot, targetDot); // Update Dots
   /* hideShowArrows(slides, prevButton, nextButton, targetIndex); */ // Hide & Show Arrows
+
+  // Start autoplay again after 5 seconds
+  setTimeout(() => {
+    // Ensure autoplay is allowed to start again
+    if (!autoPlayActive) {
+      autoPlayActive = true;
+      startInterval(intervalTime); // Restart interval
+
+      // Update the toggle button image to show play
+      toggleButton.innerHTML = `<img src="/images/pause-solid.svg" alt="Pause" class="toggle-icon" />`;
+    }
+  }, 5000); // 5000ms = 5 seconds
 });
 
 // Setting default Interval
 let myInterval;
-let intervalTime = 3000; // Initial interval time is 3000ms
+let intervalTime = 3000; // Initial interval time is 3 seconds
 
 function startInterval(mSeconds = intervalTime) {
   if (!myInterval) {
